@@ -1,0 +1,31 @@
+﻿<ManagementPackFragment SchemaVersion="2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Categories>
+    <Category ID="Community.HeatMap.Category.ConsoleTaskGenericExportHeatMap" Value="System!System.Internal.ManagementPack.ConsoleTasks.MonitoringObject" Target="Community.HeatMap.ConsoleTask.GenericExportHeatMap" />
+  </Categories>
+  <Presentation>
+    <ConsoleTasks>
+      <ConsoleTask ID="Community.HeatMap.ConsoleTask.GenericExportHeatMap" Accessibility="Public" Enabled="true" Target="System!System.Entity" RequireOutput="true">
+        <Assembly>Community.HeatMap.Resource.ConsoleTaskAlertExportHeatMap</Assembly>
+        <Handler>ShellHandler</Handler>
+        <Parameters>
+          <Argument Name="Application">PowerShell</Argument>
+          <Argument Name="WorkingDirectory">%UserProfile%</Argument>
+          <Argument Name="Param0">"C:\SCOM_HeatMap\Export-SCOMHeatMap.ps1" False</Argument>
+        </Parameters>
+      </ConsoleTask>
+    </ConsoleTasks>
+  </Presentation>
+  <LanguagePacks>
+    <LanguagePack ID="ENU">
+      <DisplayStrings>
+        <DisplayString ElementID="Community.HeatMap.ConsoleTask.GenericExportHeatMap">
+          <Name>Export Heat Map</Name>
+          <Description>Console Task</Description>
+        </DisplayString>
+      </DisplayStrings>
+    </LanguagePack>
+  </LanguagePacks>
+  <Resources>
+    <Assembly ID="Community.HeatMap.Resource.ConsoleTaskGenericExportHeatMap" Accessibility="Public" FileName="Community.HeatMap.ConsoleTask.GenericExportHeatMap" HasNullStream="true" QualifiedName="Community.HeatMap.ConsoleTask.GenericExportHeatMap" />
+  </Resources>
+</ManagementPackFragment>

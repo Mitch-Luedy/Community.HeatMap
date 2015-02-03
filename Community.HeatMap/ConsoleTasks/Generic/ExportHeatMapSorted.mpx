@@ -1,0 +1,31 @@
+﻿<ManagementPackFragment SchemaVersion="2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Categories>
+    <Category ID="Community.HeatMap.Category.ConsoleTaskGenericExportHeatMapSorted" Value="System!System.Internal.ManagementPack.ConsoleTasks.MonitoringObject" Target="Community.HeatMap.ConsoleTask.GenericExportHeatMapSorted" />
+  </Categories>
+  <Presentation>
+    <ConsoleTasks>
+      <ConsoleTask ID="Community.HeatMap.ConsoleTask.GenericExportHeatMapSorted" Accessibility="Public" Enabled="true" Target="System!System.Entity" RequireOutput="true">
+        <Assembly>Community.HeatMap.Resource.ConsoleTaskAlertExportHeatMapSorted</Assembly>
+        <Handler>ShellHandler</Handler>
+        <Parameters>
+          <Argument Name="Application">PowerShell</Argument>
+          <Argument Name="WorkingDirectory">%UserProfile%</Argument>
+          <Argument Name="Param0">"C:\SCOM_HeatMap\Export-SCOMHeatMap.ps1" True</Argument>
+        </Parameters>
+      </ConsoleTask>
+    </ConsoleTasks>
+  </Presentation>
+  <LanguagePacks>
+    <LanguagePack ID="ENU">
+      <DisplayStrings>
+        <DisplayString ElementID="Community.HeatMap.ConsoleTask.GenericExportHeatMapSorted">
+          <Name>Export Heat Map (Sorted)</Name>
+          <Description>Console Task</Description>
+        </DisplayString>
+      </DisplayStrings>
+    </LanguagePack>
+  </LanguagePacks>
+  <Resources>
+    <Assembly ID="Community.HeatMap.Resource.ConsoleTaskGenericExportHeatMapSorted" Accessibility="Public" FileName="Community.HeatMap.ConsoleTask.GenericExportHeatMapSorted" HasNullStream="true" QualifiedName="Community.HeatMap.ConsoleTask.GenericExportHeatMapSorted" />
+  </Resources>
+</ManagementPackFragment>
