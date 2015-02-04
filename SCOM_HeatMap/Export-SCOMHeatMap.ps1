@@ -60,7 +60,7 @@ If (Get-Module -ListAvailable OperationsManager){
 			$object = New-Object –TypeName PSObject –Prop $properties
 			$RelatedObjects += $object
 		
-		$ObectToMap.GetRelatedMonitoringObjects() | ForEach {
+		$ObectToMap.GetRelatedMonitoringObjects('Recursive') | ForEach {
 
 			$HealthState = MapHealthState $_
 			
@@ -71,45 +71,6 @@ If (Get-Module -ListAvailable OperationsManager){
 			}
 			$object = New-Object –TypeName PSObject –Prop $properties
 			$RelatedObjects += $object
-			
-			$_.GetRelatedMonitoringObjects() | ForEach {
-			
-				$HealthState = MapHealthState $_
-				
-				$properties = @{
-					'Id'=$_.Id
-		    		'HealthState'=$HealthState
-		        	'DisplayName'=$_.DisplayName
-				}
-				$object = New-Object –TypeName PSObject –Prop $properties
-				$RelatedObjects += $object
-				
-				{$_.GetRelatedMonitoringObjects() | ForEach {
-				
-					$HealthState = MapHealthState $_
-					
-					$properties = @{
-						'Id'=$_.Id
-			    		'HealthState'=$HealthState
-			        	'DisplayName'=$_.DisplayName
-					}
-					$object = New-Object –TypeName PSObject –Prop $properties
-					$RelatedObjects += $object
-					
-					$_.GetRelatedMonitoringObjects() | ForEach {
-				
-						$HealthState = MapHealthState $_
-						
-						$properties = @{
-							'Id'=$_.Id
-				    		'HealthState'=$HealthState
-				        	'DisplayName'=$_.DisplayName
-						}
-						$object = New-Object –TypeName PSObject –Prop $properties
-						$RelatedObjects += $object
-					}
-				}
-			}
 		}
 		
 		Switch ($RelatedObjects.Count){
